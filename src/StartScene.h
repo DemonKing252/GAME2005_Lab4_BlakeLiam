@@ -36,6 +36,22 @@ private:
 	bool m_displayAbout = false;
 	bool m_displayUI = true;
 	
+	// Physics Variables
+	float m_gravity = 9.8f;
+	float m_PPM = 10.0f; // pixels per meter
+	glm::vec2 m_velocity = glm::vec2(0.0f, 0.0f);
+	glm::vec2 m_acceleration = glm::vec2(0.0f, 0.0f);
+	glm::vec2 m_finalPosition = glm::vec2(0.0f, 0.0f);
+
+	// Physics functions
+	bool m_isGravityEnabled = false;
+	float m_time = 0.016667f; // approximately 16 ms
+	float m_Atime = 0.016667f; // accumulated time
+
+	// Physics Functions
+	void m_move();
+
+
 	Ship* m_pShip;
 };
 
