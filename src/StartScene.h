@@ -47,7 +47,7 @@ private:
 	bool m_isGravityEnabled = false;
 	float m_time = 0.016667f; // approximately 16 ms
 	float m_Atime = 0.016667f; // accumulated time
-
+	
 	// Physics Functions
 	void m_move();
 

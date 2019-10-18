@@ -33,7 +33,11 @@ void StartScene::draw()
 
 void StartScene::update()
 {
-	m_move();
+	if (m_isGravityEnabled)
+	{
+		m_move();
+	}
+	
 	m_pShip->update();
 
 	if (m_displayUI)
@@ -328,15 +332,25 @@ void StartScene::m_updateUI()
 
 	//ImGui::SameLine();
 
-	if (ImGui::Button("Enable Gravity"))
-	{
-		/*m_respawnMines();
-		m_moveAlongPath = false;*/
-	}
+	//if (ImGui::Button("Enable Gravity"))
+	//{
+	//	/*m_respawnMines();
+	//	m_moveAlongPath = false;*/
+	//}
 	if (ImGui::Button("Toggle Gravity"))
 	{
 		m_isGravityEnabled = (m_isGravityEnabled ? false : true);
 	}
+	ImGui::SameLine();
+	if (ImGui::Button("Reset All"))
+	{
+		m_isGravityEnabled = false;
+		m_gravity = 9.8f;
+		m_PPM = 10.0f;
+		m_Atime = 0.016667f;
+		m_pShip->setPosition(glm::vec2(400.0f, 300.0f));
+	}
+	
 	ImGui::PushItemWidth(80);
 	if (ImGui::SliderFloat("Gravity", &m_gravity, 0.1f, 30.0f, "%.1f"))
 	{
@@ -527,7 +541,7 @@ void StartScene::m_updateUI()
 	//	if (ImGui::Button("Move Ship Along Path"))
 	//	{
 	//		m_moveAlongPath = true;
-	//		m_pathLength = 0;
+	//		m_pathLength = 0;		
 	//	}
 	//}*/
 
@@ -541,7 +555,7 @@ void StartScene::m_move()
 
 	m_acceleration = glm::vec2(0.0f, m_gravity) * m_PPM;
 
-	m_finalPosition = m_pShip->getPosition() + (m_velocity * m_time) + (m_acceleration * (m_time * m_time));
+	m_finalPosition = m_pShip->getPosition() + (m_velocity * m_time) + (m_acceleration * (m_Atime * m_Atime));
 	m_Atime += m_time;
 
 	m_pShip->setPosition(m_finalPosition);
