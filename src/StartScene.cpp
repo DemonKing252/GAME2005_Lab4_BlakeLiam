@@ -186,7 +186,7 @@ void StartScene::handleEvents()
 void StartScene::start()
 {
 
-	m_finalPosition = glm::vec2(50.0f, 50.0f);
+	m_finalPosition = glm::vec2(400.0f, 300.0f);
 
 
 	m_pShip = new Ship();
@@ -272,7 +272,7 @@ void StartScene::m_updateUI()
 	ImGui::NewFrame();
 	//ImGui::ShowDemoWindow(); // use for debug purposes
 
-	std::string windowString = "Phsyics Settings ";
+	std::string windowString = "Physics Settings ";
 
 	ImGui::Begin(&windowString[0], NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_MenuBar);
 
@@ -346,9 +346,13 @@ void StartScene::m_updateUI()
 	{
 		m_isGravityEnabled = false;
 		m_gravity = 9.8f;
-		m_PPM = 10.0f;
+		m_PPM = 5.0f;
 		m_Atime = 0.016667f;
 		m_pShip->setPosition(glm::vec2(400.0f, 300.0f));
+		m_angle = 45.0f;
+		m_velocity = 100.0f;
+		m_velocityX = 0.0f;
+		m_velocityY = 0.0f;
 	}
 	
 	ImGui::PushItemWidth(80);
@@ -357,6 +361,14 @@ void StartScene::m_updateUI()
 		
 	}
 	if (ImGui::SliderFloat("Pixels Per Meter", &m_PPM, 1.0f, 30.0f, "%.1f"))
+	{
+
+	}
+	if (ImGui::SliderFloat("Kicking Angle", &m_angle, 1.0f, 90.0f, "%.1f"))
+	{
+
+	}
+	if (ImGui::SliderFloat("Velocity", &m_velocity, 0.0f, 200.0f, "%.1f"))
 	{
 
 	}
@@ -551,13 +563,27 @@ void StartScene::m_updateUI()
 
 void StartScene::m_move()
 {
-	m_velocity = glm::vec2(0.0f, 0.0f) * m_PPM;
+	// Pf = Pi + ViT + 1/2AT^2
 
+	// Pfx = Pix + Vixcos(theta)T + 1/2AxT^2
+	// Pfy = Piy + Viysin(theta)T + 1/2AyT^2
+
+
+
+	//m_velocity = m_velocity * m_PPM; // muzzle velocity
+
+	// velocity components
+	m_velocityX = (m_velocity * m_PPM) * cos(m_angle * Deg2Rad);
+	m_velocityY = (m_velocity * m_PPM) * -sin(m_angle * Deg2Rad);
+	glm::vec2 velocity_vector = glm::vec2(m_velocityX, m_velocityY);
 	m_acceleration = glm::vec2(0.0f, m_gravity) * m_PPM;
 
-	m_finalPosition = m_pShip->getPosition() + (m_velocity * m_time) + (m_acceleration * (m_Atime * m_Atime));
-	m_Atime += m_time;
+	// physics equation
+	m_finalPosition = m_pShip->getPosition() + 
+		(velocity_vector * m_time) +
+		((m_acceleration * 0.5f) * (m_Atime * m_Atime));
 
+	m_Atime += m_time;
 	m_pShip->setPosition(m_finalPosition);
 
 }
