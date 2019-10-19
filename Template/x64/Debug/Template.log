@@ -1,0 +1,47 @@
+﻿  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_widgets.cpp
+  imgui_sdl.cpp
+c:\users\101171612\desktop\template v6\include\imgui_sdl\imgui_sdl.cpp(3): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  CollisionManager.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  DisplayObject.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  EndScene.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  FontManager.cpp
+c:\users\101171612\desktop\template v6\src\fontmanager.h(10): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Game.cpp
+c:\users\101171612\desktop\template v6\src\game.h(10): fatal error C1083: Cannot open include file: 'SDL.h': No such file or directory
+  GameObject.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Label.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  main.cpp
+c:\users\101171612\desktop\template v6\src\main.cpp(16): fatal error C1083: Cannot open include file: 'GLEW\glew.h': No such file or directory
+  Mine.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Planet.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  PlayScene.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Scene.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  ship.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  SoundManager.cpp
+c:\users\101171612\desktop\template v6\src\soundmanager.h(10): fatal error C1083: Cannot open include file: 'SDL_mixer.h': No such file or directory
+  StartScene.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Generating Code...
+  Compiling...
+  Target.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  TextureManager.cpp
+c:\users\101171612\desktop\template v6\src\texturemanager.h(11): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Tile.cpp
+c:\users\101171612\desktop\template v6\src\gameobject.h(5): fatal error C1083: Cannot open include file: 'glm\vec2.hpp': No such file or directory
+  Util.cpp
+c:\users\101171612\desktop\template v6\src\util.h(5): fatal error C1083: Cannot open include file: 'GLM/vec2.hpp': No such file or directory
+  Generating Code...
